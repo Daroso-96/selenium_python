@@ -15,17 +15,13 @@ driver = webdriver.Firefox(service=ser, options=op)
 driver.get("https://demoqa.com/")
 driver.maximize_window()
 
-titulo=driver.find_element(By.XPATH,"//img[@src='/images/Toolsqa.jpg']")
-print(titulo.is_displayed())
-btn1=driver.find_element(By.XPATH,"(//div[contains(@class,'card-up')])[1]")
+btn=driver.find_element(By.XPATH,"//button[contains(@id,'submit')]")
+print(btn.is_enabled())
 
-if(titulo.is_displayed()==True):
-    print("Existe la imagen")
-    btn1.click()
-    time.sleep(2)
+if(btn.is_enabled()==True):
+    print("Puedes dar click")
 else:
-    print("No existe la imagen")
-
+    print("No puedes dar click")
 
 time.sleep(2)
 driver.close()
